@@ -1,5 +1,6 @@
 package plc.project;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -29,7 +30,12 @@ public final class Lexer {
      * whitespace where appropriate.
      */
     public List<Token> lex() {
-        throw new UnsupportedOperationException(); //TODO
+        //repeatedly calls lexToken() and skips whitespace
+        List<Token> tokens=new ArrayList<Token>();
+        if(!peek(" ","\b","\n","\r","\t"))
+            tokens.add(lexToken());
+
+        return tokens;
     }
 
     /**
@@ -41,7 +47,24 @@ public final class Lexer {
      * by {@link #lex()}
      */
     public Token lexToken() {
-        throw new UnsupportedOperationException(); //TODO
+        //[A-Za-z0-9_-]
+        Token res = null;
+        if(peek("[A-Za-z0-9_-]")) {
+            return lexIdentifier();
+        }
+        if (peek("\\[(\\d+(,\\s?\\d+)*)?\\]")) {
+            return lexNumber();
+        }
+        if (peek("'([A-Za-z]{1}|\\[bnrt'\"\\]{1})'")) {
+            return lexCharacter();
+        }
+        if (peek("^\\\"([^\\\\]*(\\\\[bnrt'\"\\\\])*)*\\\"$")) {
+            return lexString();
+        }
+        if (peek("[<>!=()]=?")) {
+            return lexOperator();
+        }
+        return res;
     }
 
     public Token lexIdentifier() {
