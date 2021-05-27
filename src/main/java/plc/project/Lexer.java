@@ -32,8 +32,10 @@ public final class Lexer {
     public List<Token> lex() {
         //repeatedly calls lexToken() and skips whitespace
         List<Token> tokens=new ArrayList<Token>();
-        if(!peek(" ","\b","\n","\r","\t"))
-            tokens.add(lexToken());
+        for(int i = 0; i < chars.length; i++) {
+            if (!peek(" ", "\b", "\n", "\r", "\t"))
+                tokens.add(lexToken());
+        }
 
         return tokens;
     }
@@ -49,10 +51,10 @@ public final class Lexer {
     public Token lexToken() {
         //[A-Za-z0-9_-]
         Token res = null;
-        if(peek("[A-Za-z0-9_-]")) {
+        if(peek("[A-Za-z_] [A-Za-z0-9_-]*")) {
             return lexIdentifier();
         }
-        if (peek("\\[(\\d+(,\\s?\\d+)*)?\\]")) {
+        if (peek("[+\\-]? [0-9]+ ('.' [0-9]+)?")) {
             return lexNumber();
         }
         if (peek("'([A-Za-z]{1}|\\[bnrt'\"\\]{1})'")) {
