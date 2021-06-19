@@ -28,6 +28,12 @@ final class ParserExpressionTests {
 
     private static Stream<Arguments> testExpressionStatement() {
         return Stream.of(
+                Arguments.of("error1",
+                        Arrays.asList(
+                                new Token(Token.Type.OPERATOR, "!", 0)
+                        ),
+                        new Ast.Stmt.Expression(new Ast.Expr.Access(Optional.empty(), "expr"))
+                ),
                 Arguments.of("Function Expression",
                         Arrays.asList(
                                 //name();
@@ -157,6 +163,27 @@ final class ParserExpressionTests {
 
     private static Stream<Arguments> testGroupExpression() {
         return Stream.of(
+//                Arguments.of("error1",
+//                        Arrays.asList(
+//                                //(expr)
+//                                new Token(Token.Type.OPERATOR, "(", 0),
+//                                new Token(Token.Type.IDENTIFIER, ")", 1)
+//                        ),
+//                        new Ast.Expr.Group(new Ast.Expr.Access(Optional.empty(), "expr"))
+//                ),
+//                Arguments.of("error2",
+//                        Arrays.asList(
+//                                //(expr1 + expr2)
+//                                new Token(Token.Type.OPERATOR, "(", 0),
+//                                new Token(Token.Type.IDENTIFIER, "expr1", 1),
+//                                new Token(Token.Type.OPERATOR, "+", 7),
+//                                new Token(Token.Type.IDENTIFIER, "expr2", 9)
+//                        ),
+//                        new Ast.Expr.Group(new Ast.Expr.Binary("+",
+//                                new Ast.Expr.Access(Optional.empty(), "expr1"),
+//                                new Ast.Expr.Access(Optional.empty(), "expr2")
+//                        ))
+//                ),
                 Arguments.of("Grouped Variable",
                         Arrays.asList(
                                 //(expr)
@@ -174,19 +201,6 @@ final class ParserExpressionTests {
                                 new Token(Token.Type.OPERATOR, "+", 7),
                                 new Token(Token.Type.IDENTIFIER, "expr2", 9),
                                 new Token(Token.Type.OPERATOR, ")", 14)
-                        ),
-                        new Ast.Expr.Group(new Ast.Expr.Binary("+",
-                                new Ast.Expr.Access(Optional.empty(), "expr1"),
-                                new Ast.Expr.Access(Optional.empty(), "expr2")
-                        ))
-                ),
-                Arguments.of("error",
-                        Arrays.asList(
-                                //(expr1 + expr2)
-                                new Token(Token.Type.OPERATOR, "(", 0),
-                                new Token(Token.Type.IDENTIFIER, "expr1", 1),
-                                new Token(Token.Type.OPERATOR, "+", 7),
-                                new Token(Token.Type.IDENTIFIER, "expr2", 9)
                         ),
                         new Ast.Expr.Group(new Ast.Expr.Binary("+",
                                 new Ast.Expr.Access(Optional.empty(), "expr1"),

@@ -28,6 +28,56 @@ final class ParserTests {
 
     private static Stream<Arguments> testSource() {
         return Stream.of(
+                Arguments.of("error1",
+                        Arrays.asList(
+                                //LET name = expr;
+                                new Token(Token.Type.IDENTIFIER, "LET", 0),
+                                new Token(Token.Type.IDENTIFIER, "name", 4),
+                                new Token(Token.Type.OPERATOR, "=", 9),
+                                new Token(Token.Type.OPERATOR, ";", 15)
+                        ),
+                        new Ast.Source(
+                                Arrays.asList(new Ast.Field("name", Optional.of(new Ast.Expr.Access(Optional.empty(), "expr")))),
+                                Arrays.asList()
+                        )
+                )
+                ,
+                Arguments.of("error2",
+                        Arrays.asList(
+                                //LET name = expr;
+                                new Token(Token.Type.IDENTIFIER, "LET", 0),
+                                new Token(Token.Type.IDENTIFIER, "name", 4),
+                                new Token(Token.Type.IDENTIFIER, "ex", 15)
+                        ),
+                        new Ast.Source(
+                                Arrays.asList(new Ast.Field("name", Optional.of(new Ast.Expr.Access(Optional.empty(), "expr")))),
+                                Arrays.asList()
+                        )
+                )
+                ,
+                Arguments.of("error3",
+                        Arrays.asList(
+                                //LET name = expr;
+                                new Token(Token.Type.IDENTIFIER, "LET", 0),
+                                new Token(Token.Type.IDENTIFIER, "name", 4),
+                                new Token(Token.Type.OPERATOR, "=", 9),
+                                new Token(Token.Type.IDENTIFIER, "expr", 11)
+                        ),
+                        new Ast.Source(
+                                Arrays.asList(new Ast.Field("name", Optional.of(new Ast.Expr.Access(Optional.empty(), "expr")))),
+                                Arrays.asList()
+                        )
+                ),
+                Arguments.of("error1",
+                        Arrays.asList(
+                                //LET name = expr;
+                                new Token(Token.Type.OPERATOR, "?", 0)
+                        ),
+                        new Ast.Source(
+                                Arrays.asList(new Ast.Field("name", Optional.of(new Ast.Expr.Access(Optional.empty(), "expr")))),
+                                Arrays.asList()
+                        )
+                ),
                 Arguments.of("Zero Statements",
                         Arrays.asList(),
                         new Ast.Source(Arrays.asList(), Arrays.asList())
@@ -54,7 +104,6 @@ final class ParserTests {
                                 new Token(Token.Type.OPERATOR, "=", 9),
                                 new Token(Token.Type.IDENTIFIER, "expr", 11),
                                 new Token(Token.Type.OPERATOR, ";", 15),
-                                new Token(Token.Type.IDENTIFIER, "␊", 17),
                                 new Token(Token.Type.IDENTIFIER, "DEF", 19),
                                 new Token(Token.Type.IDENTIFIER, "name", 23),
                                 new Token(Token.Type.OPERATOR, "(", 28),
@@ -126,6 +175,29 @@ final class ParserTests {
 
     private static Stream<Arguments> testExpressionStatement() {
         return Stream.of(
+                Arguments.of("error",
+                        Arrays.asList(
+                                //name();
+                                new Token(Token.Type.OPERATOR, "(", 0),
+                                new Token(Token.Type.IDENTIFIER, "expr", 1)
+                        ),
+                        new Ast.Stmt.Expression(new Ast.Expr.Function(Optional.empty(), "name", Arrays.asList()))
+                ),
+                Arguments.of("error",
+                        Arrays.asList(
+                                //name();
+                                new Token(Token.Type.OPERATOR, "(", 0),
+                                new Token(Token.Type.OPERATOR, ")", 1)
+                        ),
+                        new Ast.Stmt.Expression(new Ast.Expr.Function(Optional.empty(), "name", Arrays.asList()))
+                ),
+                Arguments.of("error",
+                        Arrays.asList(
+                                //name();
+                                new Token(Token.Type.OPERATOR, "?", 0)
+                        ),
+                        new Ast.Stmt.Expression(new Ast.Expr.Function(Optional.empty(), "name", Arrays.asList()))
+                ),
                 Arguments.of("Function Expression",
                         Arrays.asList(
                                 //name();
@@ -382,6 +454,14 @@ final class ParserTests {
 
     private static Stream<Arguments> testLiteralExpression() {
         return Stream.of(
+                Arguments.of("error",
+                        Arrays.asList(
+                                //name();
+                                new Token(Token.Type.OPERATOR, "?", 0)
+                        ),
+                        new Ast.Expr.Literal(Boolean.TRUE)
+                )
+                ,
                 Arguments.of("Boolean Literal",
                         Arrays.asList(new Token(Token.Type.IDENTIFIER, "TRUE", 0)),
                         new Ast.Expr.Literal(Boolean.TRUE)
