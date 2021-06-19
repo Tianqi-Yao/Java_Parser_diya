@@ -1,0 +1,241 @@
+/* CIDILABS tools 08-01-2016*/
+@import url('https://media.citt.ufl.edu/stylesheets/University_of_Florida/UnizinKWv2.css');
+@import url('https://designtools.ciditools.com/css/themes.css');
+@import url('https://media.citt.ufl.edu/stylesheets/University_of_Florida/CidiLabs_Design_Tools_UF_colors.css');
+@import url('https://use.fontawesome.com/releases/v5.0.9/css/all.css');
+
+/*updated to comply with UF General Council policy on email forwarding as per Doug Johnson*/
+
+.add_email_link {
+	display: none;
+}
+
+.add_contact_link {
+	display: none;
+}
+
+/* hide recent grades from dashboard - AM */
+
+.recent_feedback {
+    display: none;
+}
+
+/* 10-03-2016 hide CONCLUDE button on course settings page - AM */
+
+#right-side a[href*="/confirm_action?event=conclude"] {
+
+    display:none !important;
+}
+/* 05-11-2020 hide RESET button on course settings page - AM */
+ #right-side a[href*="/reset"] {
+
+    display:none !important;
+}
+/* 2-27-2018 fixing padding applied to icons from font awesome - KM*/
+.fa, .fab, .fal, .far, .fas{
+	padding:0 5px;
+}
+
+/* 03-14-2019 hide the Quiz Statistics page to all but Teachers - AM 
+#right-side a[href*="/statistics"] {
+    display:none !important;
+}*/
+
+/* 10-01-2019 hide BBB Conferences - AM */
+
+#section-tabs .conferences
+{ display: none;}
+
+#nav_enabled_list #nav_edit_tab_id_12
+{ display: none;}
+
+#nav_disabled_list #nav_edit_tab_id_12
+{ display: none;}
+
+
+/* ////////////////////////////////////// */
+/*  	Citt start here FAQ style accordion    */
+
+.citt-start-here-FAQ-style-accordion dl {
+	border: 1px solid #084B81;
+	border-radius: 6px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.citt-start-here-FAQ-style-accordion {
+	border: 1px solid #084B81;
+	border-radius: 6px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.citt-start-here-FAQ-style-accordion dt:before{
+	font-size: 24px;
+	content: "+";
+	padding: 10px;
+	display:inline-block;
+	transition: all .1s linear;
+	-webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.citt-start-here-FAQ-style-accordion h3:before{
+	font-size: 24px;
+	content: "+";
+	padding: 10px;
+	display:inline-block;
+	transition: all .1s linear;
+	-webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.citt-start-here-FAQ-style-accordion dt.open:before{
+	transition: all .1s linear;
+	-webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+
+.citt-start-here-FAQ-style-accordion h3.open:before{
+	transition: all .1s linear;
+	-webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.citt-start-here-FAQ-style-accordion dt {
+    cursor: pointer;
+    position: relative;
+    padding: 5px 20px 6px 13px;
+    text-transform: none;
+    margin: 1px;
+    border-top: 1px solid #e5dfcf;
+    line-height: 26px;
+    color: #00529b;
+    font-size: 20px;
+    font-weight: 400;
+	letter-spacing: 1px;
+	background-color: #f5f5f5;
+}
+
+#wiki_page_show .citt-start-here-FAQ-style-accordion h3 {
+    cursor: pointer;
+    position: relative;
+    padding: 5px 20px 6px 13px;
+    text-transform: none;
+    margin: 1px;
+    border-top: 1px solid #e5dfcf;
+    line-height: 26px;
+    color: #00529b;
+    font-size: 20px;
+    font-weight: 400;
+	letter-spacing: 1px;
+	background-color: #f5f5f5;
+}
+
+.citt-start-here-FAQ-style-accordion dd{
+	background-color: #fCfCfC;
+	margin: 1px;
+	padding: 10px;
+}
+
+.citt-start-here-FAQ-style-accordion div.content{
+	background-color: #fCfCfC;
+	margin: 1px;
+	padding: 10px;
+}
+
+.citt-start-here-FAQ-style-accordion ul{
+	margin: 0px;
+	padding-left: 20px;
+}
+
+/* ///////////////////////////// */
+/*  	tl;dr quick links     */
+
+.tldr-quick-links{
+	background-color: #f5f5f5;
+	border: 1px solid #084B81;
+	border-radius: 6px;
+	padding: .6em;
+	margin: 0 1.4em .6em 0;
+}
+
+@media(min-width: 992px){
+	.tldr-quick-links{
+		padding: 1em 2em;
+	}
+}
+
+.tldr-quick-links h2, .tldr-quick-links h3{
+	margin-top: 0;
+	margin-bottom: .5em;
+	color: #00529b;
+}
+
+.tldr-quick-links ul{
+	margin-top: .75em;
+}
+
+/* ////////////////////////////////////// */
+/*  	tl;dr quick links aside    */
+
+.tldr-quick-links-aside{
+	background-color: #f5f5f5;
+	border: 1px solid #084B81;
+	border-radius: 6px;
+	padding: .6em;
+	margin: 0 0 .6em .6em;
+}
+
+.tldr-quick-links-aside.bottom{
+	display: none;
+}
+
+.tldr-quick-links-aside h2, .tldr-quick-links-aside h3{
+	margin-top: 0;
+	margin-bottom: .5em;
+	color: #00529b;
+}
+
+.tldr-quick-links-aside ul{
+	margin-top: .75em;
+}
+
+@media(min-width: 992px){
+	.tldr-quick-links-aside.top{
+		display: none;
+	}
+	.tldr-quick-links-aside.bottom{
+		display: block;
+		position: absolute;
+		top: 190px;
+		right: 1%;
+		width: 30%;
+	}
+
+	.make-this-a-column{
+		width: 66.67%;
+	}
+}
+
+/* ////////////////////////////////////// */
+/*  	Darker, Bolder H1s    */
+#wiki_page_show .page-title{
+    color: black;
+    font-weight: 600;
+    text-align: left;
+}

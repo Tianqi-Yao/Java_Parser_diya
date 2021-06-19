@@ -1,0 +1,142 @@
+(window["canvasWebpackJsonp"]=window["canvasWebpackJsonp"]||[]).push([[341],{CyAq:function(e,n,o){"use strict"
+o.d(n,"a",(function(){return i}))
+function i(e){var n="".concat(e)
+return[parseFloat(n,10),n.match(/[\d.\-\+]*\s*(.*)/)[1]||""]}},"L+/K":function(e,n,o){"use strict"
+o.d(n,"a",(function(){return G}))
+var i=o("1OyB")
+var r=o("vuIU")
+var t=o("Ji7U")
+var a=o("LK+K")
+o("DEX3")
+var s=o("q1tI")
+var c=o.n(s)
+var u=o("i8i4")
+var l=o.n(u)
+var p=o("17x9")
+var d=o.n(p)
+var _=o("TSYQ")
+var h=o.n(_)
+var m=o("3zPy")
+var v=o.n(m)
+var b=o("nAyT")
+var g=o("E+IV")
+var y=o("Mmr1")
+var f=o("n12J")
+var k=o("6SzX")
+var w=o("VTBJ")
+var C=o("hPGw")
+var T=c.a.createElement("path",{d:"M213.333333,960 C213.333333,792.64 269.333333,638.293333 362.773333,513.6 L1406.4,1557.22667 C1281.70667,1650.66667 1127.36,1706.66667 960,1706.66667 C548.373333,1706.66667 213.333333,1371.62667 213.333333,960 M1706.66667,960 C1706.66667,1127.36 1650.66667,1281.70667 1557.22667,1406.4 L513.6,362.773333 C638.293333,269.333333 792.64,213.333333 960,213.333333 C1371.62667,213.333333 1706.66667,548.373333 1706.66667,960 M960,0 C429.76,0 0,429.76 0,960 C0,1490.24 429.76,1920 960,1920 C1490.24,1920 1920,1490.24 1920,960 C1920,429.76 1490.24,0 960,0",fillRule:"evenodd",stroke:"none",strokeWidth:"1"})
+var B=function(e){Object(t["a"])(o,e)
+var n=Object(a["a"])(o)
+function o(){Object(i["a"])(this,o)
+return n.apply(this,arguments)}Object(r["a"])(o,[{key:"render",value:function(){return c.a.createElement(C["a"],Object.assign({},this.props,{name:"IconNo",viewBox:"0 0 1920 1920"}),T)}}])
+o.displayName="IconNoSolid"
+return o}(s["Component"])
+B.glyphName="no"
+B.variant="Solid"
+B.propTypes=Object(w["a"])({},C["a"].propTypes)
+var O=c.a.createElement("path",{d:"M1229.92952,594.767261 C1266.57399,632.742052 1279.94501,686.094808 1273.65049,737.675873 C1264.52227,812.553116 1242.91341,882.659228 1217.55726,953.332591 C1190.42812,1028.95581 1162.89637,1104.42362 1135.22526,1179.8448 C1090.96233,1300.52957 1046.35099,1421.08225 1002.57582,1541.94574 C991.697835,1571.96347 983.940014,1604.01708 980.84308,1635.72879 C977.467421,1670.26122 1002.30484,1687.25546 1033.49097,1671.93189 C1058.46774,1659.65439 1082.77868,1642.93988 1102.33582,1623.16377 C1134.28844,1590.85373 1166.1017,1558.38828 1197.14072,1525.18462 C1212.65637,1508.5789 1228.00168,1491.78669 1243.05278,1474.74583 C1255.04566,1461.16286 1267.37145,1440.72626 1283.83166,1432.46614 C1315.00231,1416.82397 1339.05774,1455.31162 1333.41358,1482.25997 C1327.40553,1510.99555 1306.03668,1535.79922 1288.39964,1558.23286 C1233.5297,1628.02815 1173.35627,1695.32132 1105.09209,1752.20968 C1037.98926,1807.97909 963.484762,1855.42621 881.663754,1886.18991 C855.014634,1896.20618 827.707414,1904.44298 799.951139,1910.75269 C746.366431,1922.94472 687.153045,1922.03556 632.391501,1914.08626 C592.239746,1908.25833 556.144975,1882.64653 539.127321,1845.37886 C509.582566,1780.68106 530.146211,1700.78403 545.42184,1634.92842 C565.791926,1547.1598 597.272265,1463.96804 628.551303,1379.76611 C661.804636,1290.24911 695.98705,1201.08955 730.277857,1111.96884 C761.572379,1030.67311 792.998521,949.431764 823.967866,868.019468 C832.685736,845.096277 845.150897,822.76365 848.813022,799.055631 C854.921726,759.518954 826.406702,724.318257 786.82788,747.109349 C694.368902,800.353316 633.289612,888.642569 562.307875,965.50908 C546.2193,982.938475 527.064761,1004.54844 499.401394,984.578066 C469.879866,963.271155 478.636449,935.942048 495.414091,912.793511 C588.593106,784.213836 700.469863,663.933133 846.273536,596.010552 C907.205721,567.624648 992.386903,538.725887 1072.15619,537.777877 C1131.958,537.070754 1188.71706,552.067961 1229.92952,594.767261 Z M1321.96809,14.8260694 C1398.67141,44.6728411 1440.00774,111.359901 1440,205.243966 C1439.99226,374.432657 1257.24216,490.152033 1104.47038,417.699209 C1025.51404,380.252816 987.11205,291.497329 1006.2511,190.697453 C1032.74538,51.0991052 1190.03094,-36.5063373 1321.96809,14.8260694 Z",fillRule:"evenodd",stroke:"none",strokeWidth:"1"})
+var j=function(e){Object(t["a"])(o,e)
+var n=Object(a["a"])(o)
+function o(){Object(i["a"])(this,o)
+return n.apply(this,arguments)}Object(r["a"])(o,[{key:"render",value:function(){return c.a.createElement(C["a"],Object.assign({},this.props,{name:"IconInfoBorderless",viewBox:"0 0 1920 1920"}),O)}}])
+o.displayName="IconInfoBorderlessSolid"
+return o}(s["Component"])
+j.glyphName="info-borderless"
+j.variant="Solid"
+j.propTypes=Object(w["a"])({},C["a"].propTypes)
+var I=c.a.createElement("path",{d:"M1743.8579 267.012456L710.746654 1300.1237 176.005086 765.382131 0 941.387217 710.746654 1652.25843 1919.98754 443.142104z",fillRule:"evenodd",stroke:"none",strokeWidth:"1"})
+var R=function(e){Object(t["a"])(o,e)
+var n=Object(a["a"])(o)
+function o(){Object(i["a"])(this,o)
+return n.apply(this,arguments)}Object(r["a"])(o,[{key:"render",value:function(){return c.a.createElement(C["a"],Object.assign({},this.props,{name:"IconCheckMark",viewBox:"0 0 1920 1920"}),I)}}])
+o.displayName="IconCheckMarkSolid"
+return o}(s["Component"])
+R.glyphName="check-mark"
+R.variant="Solid"
+R.propTypes=Object(w["a"])({},C["a"].propTypes)
+var L=c.a.createElement("g",{fillRule:"evenodd",stroke:"none",strokeWidth:"1"},c.a.createElement("path",{d:"M994.577974 1436.35559C861.21303 1436.35559 752.755772 1544.81285 752.755772 1678.1778 752.755772 1811.54274 861.21303 1920 994.577974 1920 1127.94292 1920 1236.40018 1811.54274 1236.40018 1678.1778 1236.40018 1544.81285 1127.94292 1436.35559 994.577974 1436.35559L994.577974 1436.35559zM1165.06263 1315.44449L1310.15595 0 679 0 824.093322 1315.44449z"}))
+var S=function(e){Object(t["a"])(o,e)
+var n=Object(a["a"])(o)
+function o(){Object(i["a"])(this,o)
+return n.apply(this,arguments)}Object(r["a"])(o,[{key:"render",value:function(){return c.a.createElement(C["a"],Object.assign({},this.props,{name:"IconWarningBorderless",viewBox:"0 0 1920 1920"}),L)}}])
+o.displayName="IconWarningBorderlessSolid"
+return o}(s["Component"])
+S.glyphName="warning-borderless"
+S.variant="Solid"
+S.propTypes=Object(w["a"])({},C["a"].propTypes)
+var x=o("XQb/")
+var A=o("J2CL")
+var N=o("BTe1")
+function z(e){var n=e.colors,o=e.borders,i=e.spacing,r=e.typography,t=e.shadows
+return{background:n.backgroundLightest,color:n.textDarkest,marginTop:i.small,borderRadius:o.radiusMedium,borderWidth:o.widthMedium,borderStyle:o.style,contentPadding:"".concat(i.small," ").concat(i.medium),contentFontSize:r.fontSizeMedium,contentFontFamily:r.fontFamily,contentFontWeight:r.fontWeightNormal,contentLineHeight:r.lineHeightCondensed,closeButtonMarginTop:i.xSmall,closeButtonMarginRight:i.xxSmall,iconColor:n.textLightest,successBorderColor:n.borderSuccess,successIconBackground:n.backgroundSuccess,infoBorderColor:n.borderInfo,infoIconBackground:n.backgroundInfo,warningBorderColor:n.borderWarning,warningIconBackground:n.backgroundWarning,dangerBorderColor:n.borderDanger,dangerIconBackground:n.backgroundDanger,boxShadow:t.depth2}}z.canvas=function(e){return{color:e["ic-brand-font-color-dark"]}}
+var E,M,W,K,q
+var D={componentId:"cvphu",template:function(e){return"\n\n.cvphu_bgqc{background:".concat(e.background||"inherit",";border-radius:").concat(e.borderRadius||"inherit",";border-style:").concat(e.borderStyle||"inherit",";border-width:").concat(e.borderWidth||"inherit",";box-shadow:").concat(e.boxShadow||"inherit",";color:").concat(e.color||"inherit",";display:flex;min-width:12rem}\n\n.cvphu_bgqc,.cvphu_caGd{box-sizing:border-box}\n\n.cvphu_caGd{flex:1;font-family:").concat(e.contentFontFamily||"inherit",";font-size:").concat(e.contentFontSize||"inherit",";font-weight:").concat(e.contentFontWeight||"inherit",";line-height:").concat(e.contentLineHeight||"inherit",";min-width:0.0625rem;padding:").concat(e.contentPadding||"inherit","}\n\n.cvphu_dnnz{align-items:center;border-right:").concat(e.borderWidth||"inherit"," ").concat(e.borderStyle||"inherit",";color:").concat(e.iconColor||"inherit",";flex:0 0 2.5rem;font-size:1.125rem;justify-content:center}\n\n.cvphu_fsGh,.cvphu_dnnz{box-sizing:border-box;display:flex}\n\n.cvphu_fsGh{align-items:flex-start;margin-right:").concat(e.closeButtonMarginRight||"inherit",";margin-top:").concat(e.closeButtonMarginTop||"inherit",";order:1}\n\n.cvphu_cOXX{border-color:").concat(e.successBorderColor||"inherit","}\n\n.cvphu_cOXX .cvphu_dnnz{background-color:").concat(e.successIconBackground||"inherit",";border-right-color:").concat(e.successIconBackground||"inherit","}\n\n.cvphu_pypk{border-color:").concat(e.infoBorderColor||"inherit","}\n\n.cvphu_pypk .cvphu_dnnz{background:").concat(e.infoIconBackground||"inherit",";border-right-color:").concat(e.infoIconBackground||"inherit","}\n\n.cvphu_ddvR{border-color:").concat(e.dangerBorderColor||"inherit","}\n\n.cvphu_ddvR .cvphu_dnnz{background:").concat(e.dangerIconBackground||"inherit",";border-right-color:").concat(e.dangerIconBackground||"inherit","}\n\n.cvphu_eRqw{border-color:").concat(e.warningBorderColor||"inherit","}\n\n.cvphu_eRqw .cvphu_dnnz{background:").concat(e.warningIconBackground||"inherit",";border-right-color:").concat(e.warningIconBackground||"inherit","}")},alert:"cvphu_bgqc",content:"cvphu_caGd",icon:"cvphu_dnnz",closeButton:"cvphu_fsGh",success:"cvphu_cOXX",info:"cvphu_pypk",error:"cvphu_ddvR",warning:"cvphu_eRqw"}
+var G=(E=Object(b["a"])("8.0.0",{closeButtonLabel:"renderCloseButtonLabel"}),M=Object(A["l"])(z,D),E(W=M(W=(q=K=function(e){Object(t["a"])(o,e)
+var n=Object(a["a"])(o)
+function o(e){var r
+Object(i["a"])(this,o)
+r=n.call(this,e)
+r._timeouts=[]
+r.handleTimeout=function(){r.props.timeout>0&&r._timeouts.push(setTimeout((function(){r.close()}),r.props.timeout))}
+r.onExitTransition=function(){r.props.onDismiss&&r.props.onDismiss()}
+r.close=function(){r.clearTimeouts()
+r.removeScreenreaderAlert()
+r.setState({open:false},(function(){r.props.onDismiss&&"none"===r.props.transition&&r.props.onDismiss()}))}
+r.handleKeyUp=function(e){(r.props.renderCloseButtonLabel||r.props.closeButtonLabel)&&e.keyCode===v.a.codes.esc&&r.close()}
+r.state={open:true}
+return r}Object(r["a"])(o,[{key:"variantUI",value:function(){return{error:{Icon:B,classNames:h()(D.alert,D.error)},info:{Icon:j,classNames:h()(D.alert,D.info)},success:{Icon:R,classNames:h()(D.alert,D.success)},warning:{Icon:S,classNames:h()(D.alert,D.warning)}}[this.props.variant]}},{key:"clearTimeouts",value:function(){this._timeouts.forEach((function(e){return clearTimeout(e)}))
+this._timeouts=[]}},{key:"isDOMNode",value:function(e){return e&&"object"===typeof e&&1===e.nodeType}},{key:"getLiveRegion",value:function(){var e=null
+"function"===typeof this.props.liveRegion&&(e=this.props.liveRegion())
+return this.isDOMNode(e)?e:null}},{key:"initLiveRegion",value:function(e){e.getAttribute("role")
+if(e){e.setAttribute("aria-live",this.props.liveRegionPoliteness)
+e.setAttribute("aria-relevant","additions text")
+e.setAttribute("aria-atomic",this.props.isLiveRegionAtomic)}}},{key:"createScreenreaderContentNode",value:function(){return c.a.createElement(k["a"],null,this.props.children)}},{key:"createScreenreaderAlert",value:function(){var e=this.getLiveRegion()
+if(e){this.srid=Object(N["a"])("Alert")
+var n=document.createElement("div")
+n.setAttribute("id",this.srid)
+var o=this.createScreenreaderContentNode()
+l.a.render(o,n)
+e.appendChild(n)}}},{key:"updateScreenreaderAlert",value:function(){var e=this
+if(this.getLiveRegion()){var n=document.getElementById(this.srid)
+n&&l.a.render(null,n,(function(){var o=e.createScreenreaderContentNode()
+l.a.render(o,n)}))}}},{key:"removeScreenreaderAlert",value:function(){var e=this.getLiveRegion()
+if(e){var n=document.getElementById(this.srid)
+if(n){e.removeAttribute("aria-live")
+e.removeAttribute("aria-relevant")
+e.removeAttribute("aria-atomic")
+l.a.unmountComponentAtNode(n)
+n.parentNode.removeChild(n)
+this.initLiveRegion(e)}}}},{key:"componentDidMount",value:function(){var e=this.getLiveRegion()
+e&&this.initLiveRegion(e)
+this.handleTimeout()
+this.createScreenreaderAlert()}},{key:"componentDidUpdate",value:function(e){false===!!this.props.open&&!!this.props.open!==!!e.open?this.close():this.props.children!==e.children&&this.updateScreenreaderAlert()}},{key:"componentWillUnmount",value:function(){this.removeScreenreaderAlert()
+this.clearTimeouts()}},{key:"renderIcon",value:function(){var e=this.variantUI(),n=e.Icon
+return c.a.createElement("div",{className:D.icon},c.a.createElement(n,{className:D.alertIcon}))}},{key:"renderCloseButton",value:function(){var e=this.props.renderCloseButtonLabel&&Object(g["a"])(this.props.renderCloseButtonLabel)||this.props.closeButtonLabel
+return e?c.a.createElement("div",{className:D.closeButton,key:"closeButton"},c.a.createElement(y["a"],{onClick:this.close,size:"small",screenReaderLabel:e})):null}},{key:"renderAlert",value:function(){var e=this.variantUI(),n=e.classNames
+return c.a.createElement(f["a"],{as:"div",margin:this.props.margin,className:n,onKeyUp:this.handleKeyUp},this.renderIcon(),c.a.createElement("div",{className:D.content},this.props.children),this.renderCloseButton())}},{key:"render",value:function(){if(this.props.screenReaderOnly){this.getLiveRegion()
+return null}if("none"===this.props.transition)return this.state.open?this.renderAlert():null
+return c.a.createElement(x["a"],{type:this.props.transition,transitionOnMount:true,in:this.state.open,unmountOnExit:true,onExited:this.onExitTransition},this.renderAlert())}}])
+o.displayName="Alert"
+return o}(s["Component"]),K.propTypes={children:d.a.node,variant:d.a.oneOf(["info","success","warning","error"]),margin:A["c"].spacing,liveRegion:d.a.func,liveRegionPoliteness:d.a.oneOf(["polite","assertive"]),isLiveRegionAtomic:d.a.bool,screenReaderOnly:d.a.bool,timeout:d.a.number,renderCloseButtonLabel:d.a.oneOfType([d.a.func,d.a.node]),closeButtonLabel:d.a.string,onDismiss:d.a.func,transition:d.a.oneOf(["none","fade"]),open:d.a.bool},K.defaultProps={variant:"info",margin:"x-small 0",timeout:0,transition:"fade",open:true,screenReaderOnly:false,liveRegionPoliteness:"assertive",isLiveRegionAtomic:false,onDismiss:void 0,liveRegion:void 0,renderCloseButtonLabel:void 0,closeButtonLabel:void 0,children:null},q))||W)||W)},XZ3G:function(e,n,o){"use strict"
+o.r(n)
+o.d(n,"default",(function(){return h}))
+var i=o("An8g")
+var r=o("ouhR")
+var t=o.n(r)
+var a=o("HGxv")
+var s=o("8WeW")
+Object(s["a"])(JSON.parse('{"ar":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"تذكر أن هذا الإرسال يخص كل شخص في مجموعة %{groupType} الخاصة بك."},"ca":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Tingueu en compte que aquesta entrega comptarà per a tots els membres del vostre grup %{groupType}."},"cy":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Cofiwch y bydd y cyflwyniad hwn yn cyfrif i bawb yn eich grŵp %{groupType}."},"da":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Husk på, at denne aflevering gælder for alle i din %{groupType} gruppe."},"da-x-k12":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Husk på, at denne aflevering gælder for alle i din %{groupType} gruppe."},"de":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Bedenken Sie, dass die Bewertung dieser Abgabe für alle Mitglieder Ihrer %{groupType}-Gruppe gilt."},"en-AU":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Keep in mind, this submission will count for everyone in your %{groupType} group."},"en-AU-x-unimelb":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Keep in mind, this submission will count for everyone in your %{groupType} group."},"en-CA":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Keep in mind, this submission will count for everyone in your %{groupType} group."},"en-GB":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Keep in mind, this submission will count for everyone in your %{groupType} group."},"en-GB-x-lbs":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Keep in mind, this submission will count for everyone in your %{groupType} group."},"en-GB-x-ukhe":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Keep in mind, this submission will count for everyone in your %{groupType} group."},"es":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Recuerde, esta entrega contará para todos en su grupo %{groupType}."},"fa":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"به یاد داشته باشید، این مورد ارسالی برای همه افرادی که در گروه %{groupType} شما هستند، محاسبه خواهد شد."},"fi":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Huomaathan, että tämä tehtäväpalautus koskee jokaista ryhmäsi %{groupType} jäsentä."},"fr":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"N’oubliez pas que cette soumission comptera pour tous les membres de votre groupe %{groupType}."},"fr-CA":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Notez que cet envoi comptera pour chacune des personnes dans votre groupe %{groupType}."},"he":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"יש לזכור, הגשה זו נספרת לכל אחד בקבוצה %{groupType} שלך."},"ht":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Sonje, soumisyon sa a ap konte pou chak moun ki nan gwoup %{groupType} ou a."},"is":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Hafa ber í huga að þessi skil gilda fyrir alla í %{groupType} hópnum þínum."},"it":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Tieni presente che questa consegna verrà presa in considerazione per ognuno all\'interno del gruppo %{groupType}."},"ja":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"この提出は、あなたの%{groupType}グループの全員に当てはまりますので、注意してください。"},"mi":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Kia maumahara, ka kautetia tēnei tāpaetanga mo te katoa i roto i to roopu %{groupType}."},"nb":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Husk at denne innleveringen vil være tellende for alle i din %{groupType} gruppe."},"nb-x-k12":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Husk at denne innleveringen vil være tellende for alle i din %{groupType} gruppe."},"nl":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Hou in gedachten: deze inzending zal voor iedereen van jouw %{groupType}-groep tellen."},"nn":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Hugs at denne innleveringa gjeld for alle i %{groupType}-gruppa."},"pl":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Należy pamiętać, że ten przesłany materiał będzie uwzględniony dla każdego w grupie %{groupType}."},"pt":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Tenha em mente que este envio contará para todos em seu %{groupType} grupo."},"pt-BR":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Tenha em mente que este envio será contado para todos em seu grupo %{groupType}."},"ru":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Имейте в виду, что эта отправка заданий будет учитываться для каждого члена вашей группы %{groupType}."},"sl":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Ne pozabite, da bo ta oddaja veljala za vse v skupini %{groupType}."},"sv":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Kom ihåg att den här inlämningen räknas för alla i din %{groupType} grupp."},"sv-x-k12":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Kom ihåg att den här inlämningen räknas för alla i din %{groupType} grupp."},"uk":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"Майте на увазі, що це відправлення буде зараховане всім учасникам вашої групи %{groupType}."},"zh-Hans":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"请记住，此提交项将会计入您的%{groupType}小组中的每个人上。"},"zh-Hant":{"keep_in_mind_this_submission_will_count_for_everyo_bb526d67":"謹記，此提交項目對於您的 %{groupType} 群組中的每個人而言都很重要。"}}'))
+o("jQeR")
+o("0sPK")
+var c=a["default"].scoped("GroupSubmissionAlert")
+o("17x9")
+o("q1tI")
+var u=o("i8i4")
+var l=o.n(u)
+var p=o("L+/K")
+var d=o("3lLS")
+var _=o.n(d)
+function h({groupType:e}){return Object(i["a"])(p["a"],{variant:"warning",margin:"medium 0"},void 0,c.t("Keep in mind, this submission will count for everyone in your %{groupType} group.",{groupType:e}))}_()(()=>{t()(".group_submission_alert").each((e,n)=>{l.a.render(Object(i["a"])(h,{groupType:n.getAttribute("data-group-type")}),n)})})}}])
+
+//# sourceMappingURL=group_submission_reminder-c-d864b85939.js.map

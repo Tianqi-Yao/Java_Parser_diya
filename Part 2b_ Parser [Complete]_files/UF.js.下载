@@ -1,0 +1,2 @@
+$('head').append('<link href="https://media.citt.ufl.edu/stylesheets/University_of_Florida/UF.css" rel="stylesheet"></link>');
+$('body').append('<script src="https://media.citt.ufl.edu/stylesheets/University_of_Florida/UFjs.js"></script>');

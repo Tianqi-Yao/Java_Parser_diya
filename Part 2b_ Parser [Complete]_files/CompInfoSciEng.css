@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+
+#wiki_body{
+}
+
+#wiki_body h2{
+	color:#000;
+	border-bottom: 0px solid #000;
+}
+
+#wiki_body h3{
+	color:#000;
+	border-bottom: 0px solid #000;
+}
+
+#wiki_body h4{
+	color:#000;
+	border-bottom: 0px solid #000;
+}
+
+/* CISE Undergraduate Advising */
+/* Master */.context-course_351105 #wiki_page_show h3{
+	color:#215b8c;
+	border-bottom: 2px solid #666;
+}
+
+/* Master */.context-course_351105 #wiki_page_show .page-title{
+display:none;
+}
+
+
+#corkboard h3{
+	background: url('cise_advising/corkboard.jpg') left bottom no-repeat;
+	padding:30px 30px 100px 60px;
+	color: #fff !important;
+	margin-bottom:-30px;
+	font-size:3em;
+	text-shadow:2px 2px 2px #000;
+	border:none !important;
+}
+
+#corkboard p,
+#corkboard h4,
+
+#corkboard li{
+	margin-left:60px;
+	max-width:75%;
+}
+

@@ -1,0 +1,254 @@
+@charset "utf-8";
+/* CSS Document */
+
+#wiki_body{
+}
+
+#wiki_body h2{
+	color:#000;
+	border-bottom: 0px solid #000;
+}
+
+#wiki_body h3{
+	color:#000;
+	border-bottom: 0px solid #000;
+}
+
+#wiki_body h4{
+	color:#000;
+	border-bottom: 0px solid #000;
+}
+/*////////////////////////*/
+
+/* Individual Development Plan */
+
+/* Master */.context-course_346378 #wiki_page_show h3, 
+/* Ongoing */.context-course_347223 #wiki_page_show h3, 
+/* Ongoing */.context-course_347220 #wiki_page_show h3, 
+/* Ongoing */.context-course_347222 #wiki_page_show h3, 
+/* Ongoing */.context-course_347229 #wiki_page_show h3, 
+/* Ongoing */.context-course_347224 #wiki_page_show h3, 
+/* Ongoing */.context-course_347230 #wiki_page_show h3, 
+/* Ongoing */.context-course_347225 #wiki_page_show h3, 
+/* Ongoing */.context-course_347226 #wiki_page_show h3, 
+/* Ongoing */.context-course_347228 #wiki_page_show h3, 
+/* Ongoing */.context-course_347227 #wiki_page_show h3, 
+/* Ongoing */.context-course_347221 #wiki_page_show h3{
+	line-height:2em;
+	border-bottom: 2px solid #2453af;
+}
+/* Master */.context-course_346378 #wiki_page_show h4, 
+/* Ongoing */.context-course_347223 #wiki_page_show h4, 
+/* Ongoing */.context-course_347220 #wiki_page_show h4, 
+/* Ongoing */.context-course_347222 #wiki_page_show h4, 
+/* Ongoing */.context-course_347229 #wiki_page_show h4, 
+/* Ongoing */.context-course_347224 #wiki_page_show h4, 
+/* Ongoing */.context-course_347230 #wiki_page_show h4, 
+/* Ongoing */.context-course_347225 #wiki_page_show h4, 
+/* Ongoing */.context-course_347226 #wiki_page_show h4, 
+/* Ongoing */.context-course_347228 #wiki_page_show h4, 
+/* Ongoing */.context-course_347227 #wiki_page_show h4, 
+/* Ongoing */.context-course_347221 #wiki_page_show h4{
+	border-bottom: 3px double #c0580f;
+}
+/* Master */.context-course_346378 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347223 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347220 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347222 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347229 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347224 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347230 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347225 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347226 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347228 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347227 #wiki_page_show .page-title, 
+/* Ongoing */.context-course_347221 #wiki_page_show .page-title{
+display:none;
+}
+
+
+/*////////////////////////*/
+
+/* First Year Advising */
+
+/* Master */.context-course_350629 #wiki_page_show h3{
+	line-height:2em;
+	color:#162c43;
+	border-bottom: 2px solid #b05a27;
+}
+/* Master */.context-course_350629 #wiki_page_show h4{
+	color:#162c43;
+	border-bottom: 3px double #b05a27;
+}
+/* Master */.context-course_350629 #wiki_page_show .page-title{
+display:none;
+}
+
+
+/*////////////////////////*/
+
+/* EGS6628 */
+
+/* Spring 2019 */.context-course_361080 #wiki_page_show h3{
+	line-height:2em;
+	border-bottom: 2px solid #0076a1;
+}
+/* Spring 2019 */.context-course_361080 #wiki_page_show h4{
+	border-bottom: 3px double #005a7c;
+}
+/* Spring 2019 */.context-course_361080 #wiki_page_show .page-title{
+display:none;
+}
+
+/*////////////////////////*/
+
+/* EGS1006 */
+
+/* Development */.context-course_368948 #wiki_page_show .container, /* Summer 2019 */.context-course_373453 #wiki_page_show .container,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show .container, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .container,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show .container, /* Spring 2020 */.context-course_389699 #wiki_page_show .container,
+/* Summer 2020 */.context-course_403540 #wiki_page_show .container, /* Summer 2021 */.context-course_403540 #wiki_page_show .container
+{
+	max-width: 1058px;
+	width: 100%;
+	margin: 0;
+	clear: both;
+}
+
+@media(min-width: 1200px){
+	/* Development */.context-course_368948 #wiki_page_show .container, /* Summer 2019 */.context-course_373453 #wiki_page_show .container,
+	/* Fall 2019 1 */.context-course_378927 #wiki_page_show .container, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .container,
+	/* Fall 2019 3 */.context-course_384818 #wiki_page_show .container, /* Spring 2020 */.context-course_389699 #wiki_page_show .container,
+	/* Summer 2020 */.context-course_403540 #wiki_page_show .container, /* Summer 2021 */.context-course_403540 #wiki_page_show .container
+	{
+		margin: 0;
+		clear: both;
+		width: 100%;
+	}
+}
+
+/* Development */.context-course_368948 #wiki_page_show .row, /* Summer 2019 */.context-course_373453 #wiki_page_show .row,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show .row, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .row,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show .row, /* Spring 2020 */.context-course_389699 #wiki_page_show .row,
+/* Summer 2020 */.context-course_403540 #wiki_page_show .row, /* Summer 2021 */.context-course_433458 #wiki_page_show .row
+{
+	margin-bottom: 30px;
+	clear: both;
+	margin-left: 0;
+}
+
+/* Development */.context-course_368948 #wiki_page_show .start-here, /* Summer 2019 */.context-course_373453 #wiki_page_show .start-here,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show .start-here, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .start-here,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show .start-here, /* Spring 2020 */.context-course_389699 #wiki_page_show .start-here,
+/* Summer 2020 */.context-course_403540 #wiki_page_show .start-here, /* Summer 2021 */.context-course_433458 #wiki_page_show .start-here
+{
+	margin: auto;
+	width: 85%;
+	max-width: 900px;
+}
+
+/* Development */.context-course_368948 #wiki_page_show .three-part-nav, /* Summer 2019 */.context-course_373453 #wiki_page_show .three-part-nav,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show .three-part-nav, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .three-part-nav,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show .three-part-nav, /* Spring 2020 */.context-course_389699 #wiki_page_show .three-part-nav,
+/* Summer 2020 */.context-course_403540 #wiki_page_show .three-part-nav, /* Summer 2021 */.context-course_433458 #wiki_page_show .three-part-nav
+{
+	float: left;
+	width: 28.6%;
+	margin-left: 3.5%;
+}
+
+/* Development */.context-course_368948 #wiki_page_show .related-programs-banner, /* Summer 2019 */.context-course_373453 #wiki_page_show .related-programs-banner,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show .related-programs-banner, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .related-programs-banner,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show .related-programs-banner, /* Spring 2020 */.context-course_389699 #wiki_page_show .related-programs-banner,
+/* Summer 2020 */.context-course_403540 #wiki_page_show .related-programs-banner, /* Summer 2021 */.context-course_433458 #wiki_page_show .related-programs-banner
+{
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+/* Development */.context-course_368948 #wiki_page_show .banner, /* Summer 2019 */.context-course_373453 #wiki_page_show .banner,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show .banner, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .banner,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show .banner, /* Spring 2020 */.context-course_389699 #wiki_page_show .banner,
+/* Summer 2020 */.context-course_403540 #wiki_page_show .banner, /* Summer 2021 */.context-course_433458 #wiki_page_show .banner
+{
+	max-width: 1058px;
+}
+
+@media(min-width: 4px){
+	/* Development */.context-course_368948 #wiki_page_show .banner img, /* Summer 2019 */.context-course_373453 #wiki_page_show .banner img,
+	/* Fall 2019 1 */.context-course_378927 #wiki_page_show .banner img, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .banner img,
+	/* Fall 2019 3 */.context-course_384818 #wiki_page_show .banner img, /* Spring 2020 */.context-course_389699 #wiki_page_show .banner img,
+	/* Summer 2020 */.context-course_403540 #wiki_page_show .banner img, /* Summer 2021 */.context-course_433458 #wiki_page_show .banner img
+	{
+		max-width: 2000px;
+	}
+}
+
+/* Development */.context-course_368948 #wiki_page_show .course-header, /* Summer 2019 */.context-course_373453 #wiki_page_show .course-header,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show .course-header, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .course-header,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show .course-header, /* Spring 2020 */.context-course_389699 #wiki_page_show .course-header,
+/* Summer 2020 */.context-course_403540 #wiki_page_show .course-header, /* Summer 2021 */.context-course_433458 #wiki_page_show .course-header
+{
+	max-width: 43.8%;
+	float: left;
+	margin-left: 3%;
+}
+
+/* Development */.context-course_368948 #wiki_page_show .course-header img, .context-course_368948 #wiki_page_show .banner img, .context-course_368948 #wiki_page_show .three-part-nav img, .context-course_368948 #wiki_page_show .start-here img,
+/*  Summer 2019 */.context-course_373453 #wiki_page_show .course-header img, .context-course_373453 #wiki_page_show .banner img, .context-course_373453 #wiki_page_show .three-part-nav img, .context-course_373453 #wiki_page_show .start-here img,
+/*  Fall 2019 1 */.context-course_378927 #wiki_page_show .course-header img, .context-course_373453 #wiki_page_show .banner img, .context-course_373453 #wiki_page_show .three-part-nav img, .context-course_373453 #wiki_page_show .start-here img,
+/* Fall 2019 2 */.context-course_384861 #wiki_page_show .container,  .context-course_384861 #wiki_page_show .banner img, .context-course_384861 #wiki_page_show .three-part-nav img, .context-course_384861 #wiki_page_show .start-here img,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show .container,  .context-course_384818 #wiki_page_show .banner img, .context-course_384818 #wiki_page_show .three-part-nav img, .context-course_384818 #wiki_page_show .start-here img,
+/* Spring 2020 */.context-course_389699 #wiki_page_show .container, .context-course_389699 #wiki_page_show .banner img, .context-course_389699 #wiki_page_show .three-part-nav img, .context-course_389699 #wiki_page_show .start-here img,
+/* Summer 2020 */.context-course_403540 #wiki_page_show .container, .context-course_403540 #wiki_page_show .banner img, .context-course_403540 #wiki_page_show .three-part-nav img, .context-course_403540 #wiki_page_show .start-here img,
+/* Summer 2021 */.context-course_433458 #wiki_page_show .container, .context-course_433458 #wiki_page_show .banner img, .context-course_433458 #wiki_page_show .three-part-nav img, .context-course_403540 #wiki_page_show .start-here img
+{
+	width: 100%;
+}
+
+/* Development */.context-course_368948 #wiki_page_show h3, .context-course_368948 #wiki_page_show h4,
+/* Summer 2019 */.context-course_373453 #wiki_page_show h3, .context-course_373453 #wiki_page_show h4,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show h3, .context-course_378927 #wiki_page_show h4,
+/* Fall 2019 2 */.context-course_384861 #wiki_page_show h3, .context-course_384861 #wiki_page_show h4,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show h3, .context-course_384818 #wiki_page_show h4,
+/* Spring 2020 */.context-course_389699 #wiki_page_show h3, .context-course_389699 #wiki_page_show h4,
+/* Summer 2020 */.context-course_403540 #wiki_page_show h3, .context-course_403540 #wiki_page_show h4,
+/* Summer 2021 */.context-course_433458 #wiki_page_show h3, .context-course_433458 #wiki_page_show h4
+{
+	border-bottom: 2px solid #428ccb;
+}
+
+/* Development */.context-course_368948 #wiki_page_show h1, /* Summer 2019 */.context-course_373453 #wiki_page_show h1,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show h1, /* Fall 2019 2 */.context-course_384861 #wiki_page_show h1,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show h1, /* Spring 2020 */.context-course_389699 #wiki_page_show h1,
+/* Summer 2020 */.context-course_403540 #wiki_page_show h1, /* Summer 2021 */.context-course_433458 #wiki_page_show h1
+{
+	display: none;
+}
+
+/* Development */.context-course_368948 #wiki_page_show .course-header img, /* Summer 2019 */.context-course_373453 #wiki_page_show .course-header img,
+/* Fall 2019 1 */.context-course_378927 #wiki_page_show .course-header img, /* Fall 2019 2 */.context-course_384861 #wiki_page_show .course-header img,
+/* Fall 2019 3 */.context-course_384818 #wiki_page_show .course-header img, /* Spring 2020 */.context-course_389699 #wiki_page_show .course-header img,
+/* Summer 2020 */.context-course_403540 #wiki_page_show .course-header img, /* Summer 2021 */.context-course_433458 #wiki_page_show .course-header img
+{
+	width: 100%;
+}
+
+/*////////////////////////*/
+
+/* EGS4625 & EGS6626 */
+
+/* Fall 2019 1 */.context-course_378782 #wiki_page_show h3, /* Fall 2019 2 */.context-course_378781 #wiki_page_show h3,  /* Fall 2019 2 */.context-course_378784 #wiki_page_show h3
+{
+	line-height:2em;
+	border-bottom: 2px solid rgb(64, 104, 116);
+}
+/* Fall 2019 1 */.context-course_378782 #wiki_page_show h4, /* Fall 2019 2 */.context-course_378781 #wiki_page_show h4,  /* Fall 2019 2 */.context-course_378784 #wiki_page_show h4
+{
+	border-bottom: 2px solid rgb(26, 62, 74);
+}
+/* Fall 2019 1 */.context-course_378782 #wiki_page_show .page-title, /* Fall 2019 2 */.context-course_378781 #wiki_page_show .page-title,  /* Fall 2019 2 */.context-course_378784 #wiki_page_show .page-title
+{
+	display:none;
+}
+
