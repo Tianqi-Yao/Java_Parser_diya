@@ -318,7 +318,6 @@ public abstract class Ast {
             private final List<Stmt> thenStatements;
             private final List<Stmt> elseStatements;
 
-
             public If(Expr condition, List<Stmt> thenStatements, List<Stmt> elseStatements) {
                 this.condition = condition;
                 this.thenStatements = thenStatements;

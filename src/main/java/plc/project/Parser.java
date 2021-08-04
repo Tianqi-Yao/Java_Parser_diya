@@ -86,7 +86,22 @@ public final class Parser {
             match("LET");
             String first = tokens.get(0).getLiteral();
             Ast.Expr second = null;
+            String type = null;
             match(Token.Type.IDENTIFIER);
+
+            if (match(":")) {
+                type = tokens.get(0).getLiteral();
+                tokens.advance();
+                if (type == null) {
+                    try {
+                        tokens.get(0);
+                    } catch (Exception e) {
+                        throw new ParseException("type should not be null", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
+                    }
+                    throw new ParseException("type should not be null", tokens.get(0).getIndex());
+                }
+            }
+
             if (match("=")) {
                 second = parseExpression();
                 if (second == null) {
@@ -108,7 +123,7 @@ public final class Parser {
             }
 
 
-            return new Ast.Field(first, Optional.of(second));
+            return new Ast.Field(first,type, Optional.of(second));
         }
         return null;
     }
@@ -119,20 +134,70 @@ public final class Parser {
      */
     public Ast.Method parseMethod() throws ParseException {
         //throw new UnsupportedOperationException(); //TODO
-        if (peek("DEF", Token.Type.IDENTIFIER, "(")) {
-            match("DEF");
-            String first = tokens.get(0).getLiteral();
-            List<String> second = new ArrayList<>();
-            List<Ast.Stmt> third = new ArrayList<>();
-            match(Token.Type.IDENTIFIER, "(");
+        String first = null;
+        List<String> second = new ArrayList<>();
+        List<String> secondType = new ArrayList<>();
+        List<Ast.Stmt> third = new ArrayList<>();
+
+        String type = null;
+        if (!match("DEF")) {
+            return null;
+        }
+        if (!peek(Token.Type.IDENTIFIER)) {
+            try {
+                tokens.get(0);
+            } catch (Exception e) {
+                throw new ParseException("do not have IDENTIFIER", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
+            }
+            throw new ParseException("do not have IDENTIFIER", tokens.get(0).getIndex());
+        }else{
+            first = tokens.get(0).getLiteral();
+            match(Token.Type.IDENTIFIER);
+        }
+
+        if (!match("(")) {
+            try {
+                tokens.get(0);
+            } catch (Exception e) {
+                throw new ParseException("do not have (", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
+            }
+            throw new ParseException("do not have (", tokens.get(0).getIndex());
+        }
+
 
             if (peek(Token.Type.IDENTIFIER)) {
                 second.add(tokens.get(0).getLiteral());
                 match(Token.Type.IDENTIFIER);
+                if (match(":")) {
+                    String temp = tokens.get(0).getLiteral();
+                    secondType.add(temp);
+                    tokens.advance();
+                    if (temp == null) {
+                        try {
+                            tokens.get(0);
+                        } catch (Exception e) {
+                            throw new ParseException("type should not be null", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
+                        }
+                        throw new ParseException("type should not be null", tokens.get(0).getIndex());
+                    }
+                }
                 while (peek(",", Token.Type.IDENTIFIER)) {
                     match(",");
                     second.add(tokens.get(0).getLiteral());
                     match(Token.Type.IDENTIFIER);
+                    if (match(":")) {
+                        String temp = tokens.get(0).getLiteral();
+                        secondType.add(temp);
+                        tokens.advance();
+                        if (temp == null) {
+                            try {
+                                tokens.get(0);
+                            } catch (Exception e) {
+                                throw new ParseException("type should not be null", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
+                            }
+                            throw new ParseException("type should not be null", tokens.get(0).getIndex());
+                        }
+                    }
                 }
             }
             // ???
@@ -143,6 +208,19 @@ public final class Parser {
                     throw new ParseException("do not have )", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
                 }
                 throw new ParseException("do not have )", tokens.get(0).getIndex());
+            }
+
+            if (match(":")) {
+                type = tokens.get(0).getLiteral();
+                tokens.advance();
+                if (type == null) {
+                    try {
+                        tokens.get(0);
+                    } catch (Exception e) {
+                        throw new ParseException("return type should not be null", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
+                    }
+                    throw new ParseException("return type should not be null", tokens.get(0).getIndex());
+                }
             }
 
             if (!match("DO")) {
@@ -169,9 +247,11 @@ public final class Parser {
                 }
                 throw new ParseException("do not have END", tokens.get(0).getIndex());
             }
-            return new Ast.Method(first, second, third);
-        }
-        return null;
+            if (type == null){
+                return new Ast.Method(first, second, secondType, Optional.empty(), third);
+            }else{
+                return new Ast.Method(first, second, secondType, Optional.of(type), third);
+            }
     }
 
     /**
@@ -243,6 +323,20 @@ public final class Parser {
             String name = tokens.get(0).getLiteral();
             match(Token.Type.IDENTIFIER);
 
+            String type = null;
+            if (match(":")) {
+                type = tokens.get(0).getLiteral();
+                tokens.advance();
+                if (type == null) {
+                    try {
+                        tokens.get(0);
+                    } catch (Exception e) {
+                        throw new ParseException("type should not be null", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
+                    }
+                    throw new ParseException("type should not be null", tokens.get(0).getIndex());
+                }
+            }
+
             Ast.Expr expr = null;
             if (match("=")) {
                 expr = parseExpression();
@@ -265,9 +359,18 @@ public final class Parser {
                 throw new ParseException("no ;", tokens.get(0).getIndex());
             }
             if (expr == null) {
-                return new Ast.Stmt.Declaration(name, Optional.empty());
+                if (type == null){
+                    return new Ast.Stmt.Declaration(name, Optional.empty(), Optional.empty());
+                }else{
+                    return new Ast.Stmt.Declaration(name, Optional.of(type), Optional.empty());
+                }
             } else {
-                return new Ast.Stmt.Declaration(name, Optional.of(expr));
+                if (type == null){
+                    return new Ast.Stmt.Declaration(name, Optional.empty(), Optional.of(expr));
+                }
+                else{
+                    return new Ast.Stmt.Declaration(name, Optional.of(type), Optional.of(expr));
+                }
             }
         }
         return null;
@@ -347,10 +450,29 @@ public final class Parser {
      */
     public Ast.Stmt.For parseForStatement() throws ParseException {
         //throw new UnsupportedOperationException(); //TODO
-        if (peek("FOR", Token.Type.IDENTIFIER, "IN")) {
-            match("FOR");
-            String name = tokens.get(0).getLiteral();
-            match(Token.Type.IDENTIFIER, "IN");
+        String name = null;
+        if (!match("FOR")){
+            return null;
+        }
+        if (peek(Token.Type.IDENTIFIER)) {
+            name = tokens.get(0).getLiteral();
+            match(Token.Type.IDENTIFIER);
+        }else{
+            try {
+                tokens.get(0);
+            } catch (Exception e) {
+                throw new ParseException("do not have IDENTIFIER", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
+            }
+            throw new ParseException("do not have IDENTIFIER", tokens.get(0).getIndex());
+        }
+        if (!match("IN")){
+            try {
+                tokens.get(0);
+            } catch (Exception e) {
+                throw new ParseException("do not have IN", tokens.get(-1).getIndex() + tokens.get(-1).getLiteral().length());
+            }
+            throw new ParseException("do not have IN", tokens.get(0).getIndex());
+        }
 
             Ast.Expr expr = parseExpression();
             if (expr == null) {
@@ -396,8 +518,7 @@ public final class Parser {
 
             }
             return new Ast.Stmt.For(name, expr, stmts1);
-        }
-        return null;
+
     }
 
     /**

@@ -53,29 +53,34 @@ public class Interpreter implements Ast.Visitor<Environment.PlcObject> {
     @Override
     public Environment.PlcObject visit(Ast.Method ast) {
         // Defines a function in the current scope. The callback function (lambda) should implement some behaviors
+        //create a new object
+        Scope scope2 = scope;
         scope.defineFunction(ast.getName(), ast.getParameters().size(), args -> {
-            try {
-                //Set the scope to be a new child
-                scope = new Scope(scope);
-                // defineVariable ( parameters ) in scope
-                for (String parameter : ast.getParameters()) {
-                    for (Environment.PlcObject arg : args) {
-                        scope.defineVariable(parameter, arg);
-                    }
+            //Set the scope to be a new child
+            Scope scope3 = scope;
+            scope = new Scope(scope2);
+            // defineVariable ( parameters ) in scope
+            for (String parameter : ast.getParameters()) {
+                for (Environment.PlcObject arg : args) {
+                    scope.defineVariable(parameter, arg);
                 }
-                // visit statement
+            }
+            // visit statement
+            try {
+
                 for (Ast.Stmt statement :
                         ast.getStatements()) {
                     visit(statement);
                 }
+                return Environment.NIL;
+
             } catch (Return r) {
                 return r.value;
             }
             // restore the scope
             finally {
-                scope = scope.getParent();
+                scope = scope3;
             }
-            return Environment.NIL;
         });
         return Environment.NIL;
     }

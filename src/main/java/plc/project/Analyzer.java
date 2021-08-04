@@ -1,12 +1,3 @@
-// Jeremy DePoyster
-// University of Florida
-// COP4020 Spring 2021 Online
-
-// Current as of 4/5/2021
-// My computer is acting up so this is my most up to date file from
-// Previous backup......
-// Will resubmit up to date when it fixes.
-
 package plc.project;
 
 import java.math.BigDecimal;
@@ -15,9 +6,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import javax.management.RuntimeErrorException;
-
-import plc.project.Environment.PlcObject;
 
 /**
  * See the specification for information about what the different visit
@@ -40,8 +28,6 @@ public final class Analyzer implements Ast.Visitor<Void> {
     @Override
     public Void visit(Ast.Source ast) {
         try {
-            boolean mainPresent = false;
-            // convert to forEach, but were acting up, so keep as is for now
             if (!ast.getFields().isEmpty()) {
                 for (int i = 0; i < ast.getFields().size(); i++)
                     visit(ast.getFields().get(i));
@@ -52,20 +38,15 @@ public final class Analyzer implements Ast.Visitor<Void> {
                     visit(ast.getMethods().get(i));
                 for (int i = 0; i < ast.getMethods().size(); i++) {
                     Ast.Method temp = ast.getMethods().get(i);
-                    if (temp.getName().equals("main") && temp.getReturnTypeName().get().equals("Integer") && temp.getParameters().isEmpty()) {
-                        mainPresent = true;
+                    if (!(temp.getName().equals("main") && temp.getReturnTypeName().get().equals("Integer") && temp.getParameters().isEmpty())) {
+                        throw new RuntimeException("A main/0 function (name = main, arity = 0) does not exist.\n" +
+                                "The main/0 function does not have an Integer return type");
                     }
                 }
             }
 
-            if (!mainPresent) {
-                // System.out.println("NO MAIN PRESENT!");
-                throw new RuntimeException("No main method with proper arguments!");
-            }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Source:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
 
@@ -80,15 +61,12 @@ public final class Analyzer implements Ast.Visitor<Void> {
                 requireAssignable(Environment.getType(ast.getTypeName()), ast.getValue().get().getType());
                 scope.defineVariable(ast.getName(), ast.getName(), ast.getValue().get().getType(), Environment.NIL);
                 ast.setVariable(scope.lookupVariable(ast.getName()));
-            }
-            else {
+            } else {
                 scope.defineVariable(ast.getName(), ast.getName(), Environment.getType(ast.getTypeName()), Environment.NIL);
                 ast.setVariable(scope.lookupVariable(ast.getName()));
             }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Field:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -96,9 +74,7 @@ public final class Analyzer implements Ast.Visitor<Void> {
 
     @Override
     public Void visit(Ast.Method ast) {
-
         try {
-            // Define returnType for Ast.Expr.Return
             Environment.Type returnType;
             if (ast.getReturnTypeName().isPresent())
                 returnType = Environment.getType(ast.getReturnTypeName().get());
@@ -106,7 +82,7 @@ public final class Analyzer implements Ast.Visitor<Void> {
                 returnType = Environment.Type.NIL;
             scope.defineVariable("returnType", "returnType", returnType, Environment.NIL);
 
-            // Rest of Method
+            // reset
             List<String> paramStrings = ast.getParameterTypeNames();
             Environment.Type[] paramTypes = new Environment.Type[paramStrings.size()];
             if (!paramStrings.isEmpty()) {
@@ -128,10 +104,8 @@ public final class Analyzer implements Ast.Visitor<Void> {
             }
 
             ast.setFunction(scope.lookupFunction(ast.getName(), ast.getParameters().size()));
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Method:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -142,14 +116,10 @@ public final class Analyzer implements Ast.Visitor<Void> {
         visit(ast.getExpression());
         try {
             if (ast.getExpression().getClass() != Ast.Expr.Function.class) {
-                // System.out.println("NOT FUNCTION TYPE!");
-                throw new RuntimeException("Not function type!");
+                throw new RuntimeException("The expression is not an Ast.Expr.Function");
             }
-        }
-        catch (RuntimeException r) {
-            // System.out.println("Ast.Expression:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
         return null;
     }
@@ -161,15 +131,12 @@ public final class Analyzer implements Ast.Visitor<Void> {
                 visit(ast.getValue().get());
                 scope.defineVariable(ast.getName(), ast.getName(), ast.getValue().get().getType(), Environment.NIL);
                 ast.setVariable(scope.lookupVariable(ast.getName()));
-            }
-            else {
+            } else {
                 scope.defineVariable(ast.getName(), ast.getName(), Environment.getType(ast.getTypeName().get()), Environment.NIL);
                 ast.setVariable(scope.lookupVariable(ast.getName()));
             }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Declaration:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -179,17 +146,13 @@ public final class Analyzer implements Ast.Visitor<Void> {
     public Void visit(Ast.Stmt.Assignment ast) {
         try {
             if (ast.getReceiver().getClass() != Ast.Expr.Access.class) {
-                // System.out.println("Not Access!");
-                throw new RuntimeException("Not Access!");
-
+                throw new RuntimeException("The receiver is not an access expression ");
             }
             visit(ast.getValue());
             visit(ast.getReceiver());
             requireAssignable(ast.getReceiver().getType(), ast.getValue().getType());
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Assignment:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -199,8 +162,7 @@ public final class Analyzer implements Ast.Visitor<Void> {
     public Void visit(Ast.Stmt.If ast) {
         try {
             if (ast.getThenStatements().isEmpty()) {
-                // System.out.println("No then statement!");
-                throw new RuntimeException("No then statement!");
+                throw new RuntimeException("The thenStatements list is empty");
             }
             visit(ast.getCondition());
             requireAssignable(Environment.Type.BOOLEAN, ast.getCondition().getType());
@@ -223,10 +185,8 @@ public final class Analyzer implements Ast.Visitor<Void> {
                     scope = scope.getParent();
                 }
             }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.If:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -236,24 +196,21 @@ public final class Analyzer implements Ast.Visitor<Void> {
     public Void visit(Ast.Stmt.For ast) {
         try {
             if (ast.getStatements().isEmpty()) {
-                // System.out.println("No statements!");
-                throw new RuntimeException("No statements!");
+                throw new RuntimeException("The thenStatements list is empty");
             }
             visit(ast.getValue());
             requireAssignable(Environment.Type.INTEGER_ITERABLE, ast.getValue().getType());
-
+            Scope scope1 = scope;
             ast.getStatements().forEach(elem -> {
                 try {
                     scope = new Scope(scope);
                     scope.defineVariable(ast.getName(), ast.getName(), Environment.Type.INTEGER, Environment.NIL);
                 } finally {
-                    scope = scope.getParent();
+                    scope = scope1;
                 }
             });
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.For:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -272,10 +229,8 @@ public final class Analyzer implements Ast.Visitor<Void> {
             } finally {
                 scope = scope.getParent();
             }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.While:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -285,14 +240,10 @@ public final class Analyzer implements Ast.Visitor<Void> {
     public Void visit(Ast.Stmt.Return ast) {
         try {
             visit(ast.getValue());
-
-            // Method needs to store this return type
             Environment.Variable ret = scope.lookupVariable("returnType");
             requireAssignable(ret.getType(), ast.getValue().getType());
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Return:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
 
@@ -314,34 +265,25 @@ public final class Analyzer implements Ast.Visitor<Void> {
                 try {
                     BigInteger temp = BigInteger.class.cast(ast.getLiteral());
                     if ((temp.intValueExact() > Integer.MAX_VALUE) || (temp.intValueExact() < Integer.MIN_VALUE))
-                        throw new RuntimeException("Int outside range");
+                        throw new RuntimeException("the value is out of range of a Java int");
                     ast.setType(Environment.Type.INTEGER);
+                } catch (RuntimeException error) {
+                    throw new RuntimeException(error);
                 }
-                catch (RuntimeException r) {
-                    // System.out.println("Int Out Range");
-                    throw new RuntimeException("Integer outside range");
-                }
-            }
-            else if (ast.getLiteral() instanceof BigDecimal) {
+            } else if (ast.getLiteral() instanceof BigDecimal) {
                 try {
                     BigDecimal temp = BigDecimal.class.cast(ast.getLiteral());
                     if ((temp.doubleValue() > Double.MAX_VALUE) || (temp.doubleValue() < Double.MIN_VALUE))
-                        throw new RuntimeException("Decimal outside range");
+                        throw new RuntimeException("the value is out of range of a Java double value");
                     ast.setType(Environment.Type.DECIMAL);
+                } catch (RuntimeException error) {
+                    throw new RuntimeException(error);
                 }
-                catch (RuntimeException r) {
-                    // System.out.println("Decimal Out Range");
-                    throw new RuntimeException("Decimal outside range");
-                }
-            }
-            else {
-                // System.out.println("Type doesn't exist!");
+            } else {
                 throw new RuntimeException("Type doesn't exist");
             }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Literal:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -353,18 +295,15 @@ public final class Analyzer implements Ast.Visitor<Void> {
             visit(ast.getExpression());
             try {
                 if (ast.getExpression().getClass() != Ast.Expr.Binary.class) {
-                    // System.out.println("NOT BINARY TYPE!");
-                    throw new RuntimeException("Not binary type!");
+                    throw new RuntimeException("The contained expression is not a binary expression");
+                }else{
+                    ast.setType(ast.getExpression().getType());
                 }
+            } catch (RuntimeException error) {
+                throw new RuntimeException(error);
             }
-            catch (RuntimeException r) {
-                // System.out.println("NOT BINARY TYPE!");
-                throw new RuntimeException("Not binary type!");
-            }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Group:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -381,50 +320,35 @@ public final class Analyzer implements Ast.Visitor<Void> {
                 requireAssignable(Environment.Type.BOOLEAN, ast.getLeft().getType());
                 requireAssignable(Environment.Type.BOOLEAN, ast.getRight().getType());
                 ast.setType(Environment.Type.BOOLEAN);
-            }
-            else if (op.equals("<") || op.equals("<=") || op.equals(">") || op.equals(">=") || op.equals("==") || op.equals("!=")) {
+            } else if (op.equals("<") || op.equals("<=") || op.equals(">") || op.equals(">=") || op.equals("==") || op.equals("!=")) {
                 requireAssignable(Environment.Type.COMPARABLE, ast.getLeft().getType());
                 requireAssignable(Environment.Type.COMPARABLE, ast.getRight().getType());
                 ast.setType(Environment.Type.BOOLEAN);
-            }
-            else if (op.equals("+")) {
+            } else if (op.equals("+")) {
                 if (ast.getLeft().getType() == Environment.Type.STRING || ast.getRight().getType() == Environment.Type.STRING) {
                     ast.setType(Environment.Type.STRING);
-                }
-                else if (ast.getLeft().getType() == Environment.Type.INTEGER || ast.getLeft().getType() == Environment.Type.DECIMAL) {
+                } else if (ast.getLeft().getType() == Environment.Type.INTEGER || ast.getLeft().getType() == Environment.Type.DECIMAL) {
                     if (ast.getLeft().getType() != ast.getRight().getType()) {
-                        // System.out.println("NOT RIGHT TYPES FOR +");
-                        throw new RuntimeException("Not right types for +");
+                        throw new RuntimeException("+ error");
                     }
                     ast.setType(ast.getLeft().getType());
+                } else {
+                    throw new RuntimeException("+ error");
                 }
-                else {
-                    // System.out.println("NOT RIGHT TYPES FOR +");
-                    throw new RuntimeException("Not right types for +");
-                }
-            }
-
-            else if (op.equals("-") || op.equals("*") || op.equals("/")) {
+            } else if (op.equals("-") || op.equals("*") || op.equals("/")) {
                 if (ast.getLeft().getType() == Environment.Type.INTEGER || ast.getLeft().getType() == Environment.Type.DECIMAL) {
                     if (ast.getLeft().getType() != ast.getRight().getType()) {
-                        // System.out.println("NOT RIGHT TYPES FOR *, -, /");
-                        throw new RuntimeException("Not right types for *, -, /");
+                        throw new RuntimeException("*, -, / error");
                     }
                     ast.setType(ast.getLeft().getType());
+                } else {
+                    throw new RuntimeException("*, -, / error");
                 }
-                else {
-                    // System.out.println("NOT RIGHT TYPES FOR *, -, /");
-                    throw new RuntimeException("Not right types for *, -, /");
-                }
+            } else {
+                throw new RuntimeException("Binary error");
             }
-            else {
-                // System.out.println("HMMM HOW'D THIS HAPPEN");
-                throw new RuntimeException("Not right types for Binary");
-            }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Binary:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
 
@@ -433,8 +357,6 @@ public final class Analyzer implements Ast.Visitor<Void> {
 
     @Override
     public Void visit(Ast.Expr.Access ast) {
-        // Sorry for the comment I'm just so happy I figured this out, wow, so happy.
-
         try {
             if (ast.getReceiver().isPresent()) {
                 Ast.Expr.Access temp = Ast.Expr.Access.class.cast(ast.getReceiver().get());
@@ -445,14 +367,11 @@ public final class Analyzer implements Ast.Visitor<Void> {
                 } finally {
                     scope = scope.getParent();
                 }
-            }
-            else {
+            } else {
                 ast.setVariable(scope.lookupVariable(ast.getName()));
             }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Access:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -470,8 +389,7 @@ public final class Analyzer implements Ast.Visitor<Void> {
                     requireAssignable(params.get(i + 1), ast.getArguments().get(i).getType());
                 }
                 ast.setFunction(scope.lookupVariable(temp.getName()).getType().getMethod(ast.getName(), ast.getArguments().size()));
-            }
-            else {
+            } else {
                 List<Environment.Type> params = scope.lookupFunction(ast.getName(), ast.getArguments().size()).getParameterTypes();
                 for (int i = 0; i < ast.getArguments().size(); i++) {
                     visit(ast.getArguments().get(i));
@@ -479,10 +397,8 @@ public final class Analyzer implements Ast.Visitor<Void> {
                 }
                 ast.setFunction(scope.lookupFunction(ast.getName(), ast.getArguments().size()));
             }
-        } catch (RuntimeException r) {
-            // System.out.println("Ast.Function:");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
         return null;
@@ -491,13 +407,10 @@ public final class Analyzer implements Ast.Visitor<Void> {
     public static void requireAssignable(Environment.Type target, Environment.Type type) {
         try {
             if (target != type && target != Environment.Type.ANY && target != Environment.Type.COMPARABLE) {
-                // System.out.println("REQUIRE ASSIGNABLE - target: " + target + " type: " + type);
-                throw new RuntimeException("Not matching types!");
+                throw new RuntimeException("the target type does not match the type being used or assigned");
             }
-        } catch (RuntimeException r) {
-            // System.out.println("Require Assignable Triggered.");
-            // System.out.println(r);
-            throw new RuntimeException(r);
+        } catch (RuntimeException error) {
+            throw new RuntimeException(error);
         }
 
     }
